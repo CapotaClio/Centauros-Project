@@ -1,0 +1,221 @@
+<div>
+  <style>
+  /* Reset básico */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    /* Estilização do corpo */
+    body {
+        font-family: 'Arial', sans-serif;
+        background-color: #f0f4f5;
+        background-image: url(fundo3.png);
+        color: #333;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 160vh;
+    }
+    
+    /* Estilo do formulário */
+    form {
+        background-color: #fff;
+        padding: 2.5rem;
+        border-radius: 10px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        width: 200%;
+        max-width: 600px;
+    }
+    
+    /* Títulos */
+    #titulo {
+        font-size: 2rem;
+        color: #022829;
+        margin-bottom: 0.5rem;
+        text-align: left; /* Alinha o título à esquerda */
+    }
+    
+    #subtitulo {
+        font-size: 1.1rem;
+        color: #666;
+        margin-bottom: 2rem;
+        text-align: left; /* Alinha o subtítulo à esquerda */
+    }
+    
+    /* Campos de entrada */
+    .campo {
+        margin-bottom: 1.5rem;
+    }
+    
+    .campo label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+        text-align: left; /* Alinha as labels à esquerda */
+    }
+    /* Caixa do email */
+    input[type="text"],
+    input[type="email"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        color: #333;
+    }
+    /* Caixa da senha */
+    input[type="text"],
+    input[type="password"],
+    textarea,
+    select {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        font-size: 1rem;
+        color: #333;
+    }
+    
+    input:focus,
+    textarea:focus,
+    select:focus {
+        border-color: #022829;
+        outline: none;
+        box-shadow: 0 0 5px rgba(2, 40, 41, 0.2);
+    }
+    
+    /* Botões de seleção */
+    input[type="radio"],
+    input[type="checkbox"] {
+        margin-right: 0.5rem;
+    }
+    /* Botão de envio */
+    button.botao {
+        background-color: #022829;
+        color: #fff;
+        padding: 12px 20px;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background 0.3s ease;
+        width: 100%;
+        margin-top: 1.5rem;
+    }
+    
+    button.botao:hover {
+        background-color: #035458;
+    }
+    
+    /* Estilização do campo de texto longo */
+    textarea {
+        resize: vertical;
+        height: 130px;
+    }
+    
+    /* Responsividade */
+    @media (max-width: 768px) {
+        form {
+            padding: 1.5rem;
+        }
+    
+        #titulo {
+            font-size: 1,75rem;
+        }
+    
+        button.botao {
+            padding: 10px;
+        }
+        
+    }
+    </style>
+  </div>
+  <form>
+    <h1 id="titulo">Cadastro</h1>
+    <p id="subtitulo">Complete suas informações</p>
+    <fieldset class="grupo" style="border: 0px solid #022829;">
+      <div class="campo">
+      <label for="nome"><strong>Nome</strong></label>
+      <input type="text" name="nome" id="nome" required></input>
+      </div>
+      <div class="campo">
+         <label for="sobrenome"><strong>Sobrenome</strong></label>
+      <input type="text" name="sobrenome" id="sobrenome" required>
+        </div>
+      </fieldset>
+  <br>
+  <div class="campo">
+        <label for="email"><strong>Email</strong></label>
+      <input type="email" name="email" id="email" required>
+  </div>
+  <div class="campo">
+    <label for="criar-senha"><strong>Crie sua senha</strong></label>
+  <input type="password" name="password" id="password" required>
+</div>
+
+<div class="campo">
+  <label for="criar-senha"><strong>Confirme sua senha</strong></label>
+<input type="password" name="password" id="password" required>
+</div> 
+<br>
+  <div class="campo">
+    <label><strong>Como conheceu a academia?</strong></label>
+    <label>
+    <input type="radio" name="informacao" value="indicacao" checked>Indicação
+    </input>
+    </label>
+  <label>
+  <input type="radio" name="informacao" value="internet">Internet
+    </input>
+  </label>
+  <label>
+  <input type="radio" name="informacao" value="outro">Outro
+    </input>
+</label>
+    </div>
+<br>
+<div class="campo">
+  <label for="senioridade"><strong> Plano </strong></label>
+  <select id="senioridade">
+    <option selected disable value="">Selecione</option>
+    <option>Individual</option>
+        <option>Da galera</option>
+        <option>Individual super power</option>
+        <option>Individual mega power</option>
+    </select>
+
+</div>
+<fieldset class="grupo"style="border: 0px solid #022829;">
+  <div class="campo">
+    <label><strong>Selecione suas metas:</strong></label><br><br>
+    <label for="selecao1">
+      <input type="checkbox" id="selecao1" value="emagrecer"> Emagrecer
+    </label>
+    <br>
+
+    <label for="selecao2">
+      <input type="checkbox" id="selecao2" value="ganho-de-massa-muscular"> Ganho de massa muscular
+    </label>
+    <br>
+
+    <label for="selecao3">
+      <input type="checkbox" id="selecao3" value="saude"> Saúde
+    </label>
+    <br>
+
+    <label for="selecao4">
+      <input type="checkbox" id="selecao4" value="fortalecimento-muscular"> Fortalecimento muscular
+    </label>
+  </div>
+</fieldset>
+<div class="campo">
+  <br>
+  <label><strong>Conte-ne o que espera de nós:</strong></label>
+  <textarea row="6" style="width: 26em" id="experiencia" nome="experiencia"></textarea>
+</div>
+<button class="botao" type="submit">Concluir</button>
+    </form>

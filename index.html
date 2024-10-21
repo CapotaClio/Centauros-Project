@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Centaurus gym</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" media="(max-width: 800px)" href="example.css" />
+	
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');">
+
+	<style type="text/css">
+		
+		/* Configuração padrão da página
+		-------------------------------*/
+		body, html {
+			margin: 0;
+			font: 16px "Lato", sans-serif;
+			color: #ffffff;
+			height: 100%;
+		}
+
+		.conteudo {
+			color: white;
+			background-color: #022829;
+			text-align: justify;
+			padding: 50px 80px;
+		}
+
+		.double-icons {
+			margin: auto;
+			text-align: center;
+		}
+		h1 {
+			text-align: center;
+		}
+		h3 {
+			text-transform: uppercase;
+			color: #ffffff;
+			text-align: center;
+		}
+
+		p{
+			margin-bottom: 20px;
+		}
+		.navbar-brand {
+			font-weight: 700;
+			font-size: 1.5em;
+		}
+
+		/*- home -*/
+		#home{
+			width: 100%;
+			height: 100vh;
+			align-items: center;
+			gap: 400px;
+			display: flex;
+			
+			
+		}
+		.home-text{
+			max-width: 50rem;
+			color: black;
+			font-family: "IBM Plex Mono", monospace;
+			display: flex;
+			margin-left:100px;
+			flex-direction: column;
+			
+			
+			
+		}
+		.home-text h4{
+			font-size: 1.5rem;
+			color: var(--green);
+			margin-bottom: 1rem;
+		}
+		.home-text h2{
+			font-size: 4rem;
+			margin-bottom: 1rem;
+			line-height: 4rem;
+		}
+		.home-text p{
+			margin-bottom: 4rem;
+		}
+		input {
+			width: 100%;
+		}
+
+		/* Efeito Parallax
+		-------------------------------*/
+		.caixa1, .caixa2, .caixa3, .caixa4 {
+			position: relative;
+			height: 100%;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center;
+			background-attachment: fixed; 
+		}
+
+		.caixa1 {
+			background-image: url(man-2.jpg);
+		}
+
+		.caixa2 {
+			background-image: url(man-1.jpg);
+		}
+
+		.caixa3 {
+			background-image: url(training.jpg);
+		}
+
+		.caixa4 {
+			background-image: url(woman.jpg);
+		}
+
+		.conteudo-titulo {
+			position: absolute;
+			left: 0;
+			top: 45%;
+			width: 100%;
+			text-align: center;
+		}
+
+		.conteudo-titulo span.titulo {
+			color: white;
+			background-color: #022829;
+			padding: 18px;
+			font-size: 25px;
+			letter-spacing: 5px;
+			text-transform: uppercase;
+		}
+		ul {
+			list-style: none;
+		}
+		footer {
+			padding: 50px;
+		}
+		footer a {
+			color: white;
+			font-size: 0.8em;
+		}
+		@media (max-width: 760px){
+			.caixa1 {
+				background-image: url(people.jpg);
+			}
+			.conteudo-titulo span.titulo {
+				font-size: 1em;
+			}
+		}
+		.home { 
+			background-image: url(fundo3.png);
+			background-size: 70%;
+			}
+
+	    .endereco {
+         list-style-type: none;
+		 padding: 0;
+
+	}
+	.endereco li{
+		margin-bottom: 20px;
+		line-height: 1.6;
+		cursor: pointer;
+	}
+
+	.endereco-container {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 20px;
+		justify-content: center;
+		background-image: url(fundo3.png);
+		background-size: cover;
+		z-index: -1;
+	}
+	.card {
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.322);
+		width: 300px;
+		margin: 10px;
+		transition: transform 0.3s;
+		cursor: pointer;
+		padding: 10px;
+		text-align: center;
+		display: flex;
+		align-items: center;
+		background-image: url(fundo3.png);
+	}
+	.conteudo text-darkps-5mx-auto{
+		color: white;
+	}
+	
+	.card-end {
+		background-color: #022829da;
+		color: white;
+		border-radius: 10px;
+		box-shadow: 0 4px 8px rgba(0, 0, 0, 0.322);
+		width: 300px;
+		margin: 10px;
+		transition: transform 0.3s;
+		cursor: pointer;
+		padding: 10px;
+		text-align: center;
+		display: flex;
+		align-items: center;
+	}
+	.card:hover{
+		transform: scale(1.05);
+		
+	}
+	a {
+		text-decoration: none;
+	}
+ 	
+		</style>
+
+</head>
+<body>
+	<header>
+		<nav class="navbar navbar-expand-lg fixed-top navbar-light bg-light" style="box-shadow: 0 0.02rem 0.10rem #022829;">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="#"><img src="centaurus.jpg" width="32px"><span style="color: #07595c;">Centaurus</span> Gym</a>
+		
+				<!-- Botão para visualização mobile -->
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alternar navegação">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+	  
+				<!-- Links do menu -->
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#home">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="login.html" target="_blank">Login</a >
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#premium">Planos</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#conteudo3">Sobre</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="#locais">Locais</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link active" href="https://wa.me/message/FW6E4RUGZFX2P1" target="_blank">Contato</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
+	</header>
+
+	<section id="home" class="home">
+		<div class="home-text">
+			<h2>Sejam bem-vindos</h2>
+			<h4>Fique saudável e venha treinar na melhor rede de academias do Rio de Janeiro, venha para a Centaurus!</h4>
+			<p>Conheca a Centaurus e aproveite nossos planos com descontos!</p>
+		</div>
+		<div class="home-img"><img src="centaurus.jpg" style="width: 400px;"></div>
+	</section>
+	
+	<div class="caixa1">
+		<div class="conteudo-titulo">
+			<span class="titulo">Encontre uma de nossas filiais</span>
+		</div>
+	</div>
+	<div class="endereco-container" id="locais">
+		<a href="https://www.google.com.br/maps/place/Rua+Mariz+e+Barros,+70+-+Icara%C3%AD,+Niter%C3%B3i+-+RJ,+24220-121/@-22.9097031,-43.1107621,17z/data=!3m1!4b1!4m6!3m5!1s0x9983e2967744e5:0xb0908abbdd3643f1!8m2!3d-22.9097081!4d-43.1081872!16s%2Fg%2F11c25fjmwr?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+			<div class="card-end" href=""> Niterói I (Matriz) - 
+				Rua Mariz e Barros, 70 -
+				Icaraí, Niterói - RJ, 24220-121</div>
+		</a>
+		<a href="https://www.google.com.br/maps/search/R.+Cel.+Moreira+C%C3%A9sar,+26+-++Icara%C3%AD,+Niter%C3%B3i+-+RJ,+24230-060/@-22.9052742,-43.1147941,17z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+			<div class="card-end" href=""> Niterói II - 
+				R. Cel. Moreira César, 26 - 
+				Icaraí, Niterói - RJ, 24230-060</div>
+		</a>
+		<a href="https://www.google.com.br/maps/place/R.+Pres.+Jo%C3%A3o+Pessoa,+211+-+Icara%C3%AD,+Niter%C3%B3i+-+RJ,+24220-330/@-22.9034865,-43.1044648,17z/data=!3m1!4b1!4m6!3m5!1s0x9983f9f8dcd449:0x9596781ca7258dd!8m2!3d-22.9034915!4d-43.1018899!16s%2Fg%2F11c21b2rtt?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+			<div class="card-end" href=""> Niterói III - 
+				R. Pres. João Pessoa, 211 -
+				Icaraí, Niterói - RJ, 24220-330</div>
+		</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Vicente+de+Carvalho,+909+-+Vicente+de+Carvalho,+Rio+de+Janeiro+-+RJ,+21210-000/@-22.8504333,-43.3125387,17z/data=!3m2!4b1!5s0x997ca28ddae185:0x1d8d293d6b907f98!4m6!3m5!1s0x997c9879ddf321:0x429ad83615b27a62!8m2!3d-22.8504383!4d-43.3099638!16s%2Fg%2F11b6bctv77?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" >Vila da Penha - 
+					Avenida Vicente de Carvalho, 909 -
+					Vila da Penha Rio de Janeiro, RJ - 21210623</div></a>
+			<a href="https://www.google.com.br/maps/place/R.+Dias+da+Cruz,+255+-+M%C3%A9ier,+Rio+de+Janeiro+-+RJ,+20720-010/@-22.9038645,-43.2860131,17z/data=!3m1!4b1!4m6!3m5!1s0x997da4836216ab:0x591f1f4fbd269344!8m2!3d-22.9038695!4d-43.2834382!16s%2Fg%2F11c1k3vrjj?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank"> 
+				<div class="card-end">Meier - 
+					Rua Dias da Cruz, 255  - 
+					Meier Rio de Janeiro - RJ, 20720-010</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/R.+Maria+Soares+Sendas,+111+-+Parque+Barreto,+S%C3%A3o+Jo%C3%A3o+de+Meriti+-+RJ,+25581-325/@-22.7977458,-43.3548427,17z/data=!3m1!4b1!4m6!3m5!1s0x9964e6f515c10d:0xac6b3193a34105d2!8m2!3d-22.7977508!4d-43.3522678!16s%2Fg%2F11c5nj6g7g?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end">S. João do Meriti - 
+					Rua Maria Soares Sendas, 111 - Parque Barreto São João de Meriti, RJ - 25575825</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Estr.+de+Jacarepagu%C3%A1,+3600+-+Jacarepagu%C3%A1,+Rio+de+Janeiro+-+RJ,+22753-211/@-22.9719436,-43.3341108,17z/data=!3m1!4b1!4m6!3m5!1s0x9bd9e1a5c5f1d9:0xb7cdc20669395fbf!8m2!3d-22.9719486!4d-43.3315359!16s%2Fg%2F11v0_3bqjg?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end">Jacarepaguá - 
+					Estrada de Jacarepaguá, 3600 - Jacarepaguá Rio de Janeiro, RJ - 22753211
+					</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Ayrton+Senna,+3000+-+Barra+da+Tijuca,+Rio+de+Janeiro+-+RJ,+22775-003/@-22.9827315,-43.3634679,17z/data=!3m1!4b1!4m6!3m5!1s0x9bda2ed54ec2e1:0x4431d262cad1d163!8m2!3d-22.9827365!4d-43.360893!16s%2Fg%2F11nn1tz6mg?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Barra da Tijuca - 
+					Av. Ayrton Senna, 3000 -
+					Barra da Tijuca, Rio de Janeiro - RJ</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Estr.+do+Monteiro,+1200+-+Campo+Grande,+Rio+de+Janeiro+-+RJ,+23045-830/@-22.9180456,-43.5654423,17z/data=!3m1!4b1!4m6!3m5!1s0x9be402d9a63175:0xc9f46f2337d094f0!8m2!3d-22.9180506!4d-43.5628674!16s%2Fg%2F11c4r28j8f?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Campo Grande - 
+					Estrada do Monteiro, 1200 -
+					Campo Grande Rio de Janeiro, RJ - 23045830</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/R+Professor+Jos%C3%A9+de+Souza+Herdy,+1216+-+Jardim+Vinte+e+Cinco+de+Agosto,+Duque+de+Caxias+-+RJ,+25071-202/@-22.7890985,-43.3089206,17z/data=!3m1!4b1!4m6!3m5!1s0x997aeb0a92f1b1:0x6bb7781f741d1479!8m2!3d-22.7891035!4d-43.3063457!16s%2Fg%2F11b8v813pz?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Duque de Caxias - 
+					R. Professor José de Souza Herdy, 1216
+					Jardim Vinte e Cinco de Agosto,
+					Duque de Caxias - RJ, 25071-202
+					</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Srg.+de+Mil%C3%ADcias,+265+-+Pavuna,+Rio+de+Janeiro+-+RJ,+21532-290/@-22.8048843,-43.3669596,17z/data=!3m1!4b1!4m6!3m5!1s0x9964f4b6479875:0x469b4cbc4a45cc7b!8m2!3d-22.8048893!4d-43.3643847!16s%2Fg%2F11cnd8kstf?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Pavuna - 
+					Av. Sargento de Milícias, 265 -
+					 Pavuna, Rio de Janeiro - RJ, 21532-290</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Dom+H%C3%A9lder+C%C3%A2mara,+5229+-+Cachambi,+Rio+de+Janeiro+-+RJ,+20771-001/@-22.887676,-43.2843747,17z/data=!3m1!4b1!4m6!3m5!1s0x997c526358c6dd:0xde4e26bcdcb3d6f3!8m2!3d-22.887681!4d-43.2817998!16s%2Fg%2F11cncm74vp?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Cachimbi - 
+					Av. Dom Hélder Câmara, 5229 -
+					Cachambi, Rio de Janeiro - RJ, 20771-001</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Blvd.+28+de+Setembro,+94+-+Vila+Isabel,+Rio+de+Janeiro+-+RJ,+20551-031/@-22.9141872,-43.2413904,17z/data=!3m1!4b1!4m6!3m5!1s0x997e65f4d091a5:0x3e6d8a865c06334!8m2!3d-22.9141922!4d-43.2388155!16s%2Fg%2F11nntpzkhp?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#">Vila Isabel - 
+					Blvd. 28 de Setembro, 94 -
+					Vila Isabel, Rio de Janeiro - RJ, 20551-031</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Rua+da+Passagem,+160+-+Botafogo,+Rio+de+Janeiro+-+RJ,+22290-031/@-22.955414,-43.1835939,17z/data=!4m6!3m5!1s0x997ffa4b33b96f:0xb78bc762cf3b0f69!8m2!3d-22.955419!4d-43.181019!16s%2Fg%2F11c23rz74c?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="#" >Botafogo - 
+					Rua da Passagem, 160 -
+					Botafogo, Rio de Janeiro - RJ, 22290-031</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+John+Fitzgerald+Kennedy,+292+-+Corte+Oito,+Duque+de+Caxias+-+RJ,+25060-470/@-22.7659898,-43.301685,17z/data=!3m1!4b1!4m5!3m4!1s0x99707990e11f4f:0xc0eee18c32e51a76!8m2!3d-22.7659948!4d-43.2991101?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href=""> Araruama - 
+					Av. John Kennedy, 292 - Centro,
+					Araruama - RJ, 28970-000</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/R.+Fonseca,+240+-+Bangu,+Rio+de+Janeiro+-+RJ,+21820-005/@-22.8779352,-43.4697131,17z/data=!3m1!4b1!4m6!3m5!1s0x9bdfed5d38be57:0x644a2a3f0324b9aa!8m2!3d-22.8779402!4d-43.4671382!16s%2Fg%2F11c22g6cq8?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href=""> Bangu - 
+					R. Fonseca, 240 -
+					Bangu, Rio de Janeiro - RJ, 21820-005</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Gen.+San+Martin,+512+-+Leblon,+Rio+de+Janeiro+-+RJ,+22441-013/@-22.9848359,-43.2237737,17z/data=!3m1!4b1!4m6!3m5!1s0x9bd5ad05d59895:0x2203120905f2ac7d!8m2!3d-22.9848409!4d-43.2211988!16s%2Fg%2F11c5dwcd84?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href=""> Leblon - 
+					Av. Gen. San Martin, 512 -
+					Leblon, Rio de Janeiro - RJ, 22441-013</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Pra%C3%A7a+Monte+Castelo,+20+-+Centro,+Rio+de+Janeiro+-+RJ,+20051-030/@-22.9040112,-43.1833919,17z/data=!3m1!4b1!4m6!3m5!1s0x997f5dbffb2a69:0xea321563ec591f7a!8m2!3d-22.9040162!4d-43.180817!16s%2Fg%2F11c22_tw3k?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Centro - 
+					Praça Monte Castelo, 20 -
+					Centro, Rio de Janeiro - RJ, 20051-030</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Ernani+Cardoso,+350+-+Campinho,+Rio+de+Janeiro+-+RJ,+21310-310/@-22.8817693,-43.3417314,17z/data=!3m1!4b1!4m6!3m5!1s0x9962cff5190d05:0x23034663f9bcba86!8m2!3d-22.8817743!4d-43.3391511!16s%2Fg%2F11b8ylybpr?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Campinho - 
+					Av. Ernani Cardoso, 350 - 
+					Campinho, Rio de Janeiro - RJ, 21310-310</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Pra%C3%A7a+Santos+Dumont,+31+-+G%C3%A1vea,+Rio+de+Janeiro+-+RJ,+22470-060/@-22.9737024,-43.227373,17z/data=!3m1!4b1!4m6!3m5!1s0x9bd5bb1c7e97f3:0xf3842b6b84c9e25c!8m2!3d-22.9737074!4d-43.2247927!16s%2Fg%2F11c0w3nn6x?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Gávea - 
+					Praça Santos Dumont, 31 - 
+					Gávea, Rio de Janeiro - RJ, 22470-060</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Feliciano+Sodr%C3%A9,+901+-+Agri%C3%B5es,+Teres%C3%B3polis+-+RJ,+25963-026/@-22.4163789,-42.9750407,17z/data=!3m1!4b1!4m6!3m5!1s0x984cd23951cf9b:0x2fbab2f8ea59adf1!8m2!3d-22.4163839!4d-42.9724604!16s%2Fg%2F11c17ts6ph?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Teresópolis - 
+					Av. Feliciano Sodré, 901 - Várzea, 
+					Teresópolis - RJ, 25963-026</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/Av.+Conselheiro+J%C3%BAlius+Arp,+80+-+Centro,+Nova+Friburgo+-+RJ,+28623-000/@-22.2898265,-42.5382979,17z/data=!3m1!4b1!4m6!3m5!1s0x978a62fdfe075f:0x738a35a40caadaa6!8m2!3d-22.2898315!4d-42.5357176!16s%2Fg%2F11hj7vh1nt?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Nova Friburgo - 
+					Av. Conselheiro Július Arp, 80 - Centro, 
+					Nova Friburgo - RJ, 28623-000</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/R.+Riachuelo,+142+-+Centro,+Rio+de+Janeiro+-+RJ,+20230-014/@-22.9140988,-43.1881242,17z/data=!3m1!4b1!4m6!3m5!1s0x997f70160ae791:0xf7c65626b5ab9512!8m2!3d-22.9141038!4d-43.1855439!16s%2Fg%2F11bw3gxq1b?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Centro - 
+					R. Riachuelo, 142 - Centro, 
+					Rio de Janeiro - RJ, 20230-014R</div>
+			</a>
+			<a href="https://www.google.com.br/maps/place/R.+Marqu%C3%AAs+de+Abrantes,+20+-+Flamengo,+Rio+de+Janeiro+-+RJ,+22230-061/@-22.9340564,-43.1801657,17z/data=!3m1!4b1!4m6!3m5!1s0x997f8634282001:0x75914165817868a7!8m2!3d-22.9340614!4d-43.1775854!16s%2Fg%2F11c5nnrvs8?entry=ttu&g_ep=EgoyMDI0MTAxNi4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+				<div class="card-end" href="">Flamengo - 
+					R. Marquês de Abrantes, 20 - Flamengo, 
+					Rio de Janeiro - RJ, 22230-061</div>
+			</a>
+			</a>
+		</ul>
+	</div>
+
+	<div class="caixa2">
+		<div class="conteudo-titulo">
+			<span class="titulo">Ultrapasse seus limites</span>
+		</div>
+	</div>
+
+	<section class="conteudo" id="premium">
+		<section class="d-flex conteudo2">
+            <div class="container col-md-12 my-5">
+                <div class="col-md-6 mx-auto my-5">
+                    <h1 class="text-darkps-5mx-auto">Escolha seu plano Centaurus</h1>
+                </div>         
+                <div class="row my-5">
+                    <div class="card-group">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <button class="btn btn-primary disabled" type="button">1 semana gratuita com a assinatura*</button>
+                                
+                                <h3 class="card-title">Individual Power</h3>
+                                <p class="card-text">R$ 80/mês após o período da oferta</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Sem personal trainer</li>
+                                <li class="list-group-item">Sem nutricionista</li>
+                            </ul>
+                            <div class="card-body mx-auto">
+								<a href="cadastro.html"> 
+									<button class="btn btn-dark btn-md rounded-pill">Começar</button>
+								</a>
+                            </div>
+                            <div class="card-body">
+                                <p>Preço válido apenas para o plano Individual Power.<a href=""> Sujeito a Termos e Condições.</a> *Oferta disponível apenas para novo registros</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <button class="btn btn-primary disabled" type="button">1 semana grátis com a assinatura*</button>
+                                
+                                <h3 class="card-title">Da galera</h3>
+                                <p class="card-text">R$ 50/mês após o período da oferta - Mínimo grupo de três pessoas</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Sem personal trainer</li>
+                                <li class="list-group-item">Sem nutricionista</li>
+                            </ul>
+                            <div class="card-body mx-auto">
+                                <a href="cadastro.html"> 
+									<button class="btn btn-dark btn-md rounded-pill">Começar</button>
+								</a>
+                            </div>
+                            <div class="card-body">
+                                <p>Preço válido apenas para o plano Da galera.<a href=""> Sujeito a Termos e Condições.</a> *Oferta disponível apenas para novo registros.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <button class="btn btn-primary disabled" type="button">1 semana grátis com a assinatura*</button>
+                                
+                                <h3 class="card-title">Individual super power</h3>
+                                <p class="card-text">R$ 90/mês após o período da oferta</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Com personal trainer</li>
+                                <li class="list-group-item">Sem nutricionista</li>
+                            </ul>
+                            <div class="card-body mx-auto">
+                                <a href="cadastro.html"> 
+									<button class="btn btn-dark btn-md rounded-pill">Começar</button>
+								</a>
+                            </div>
+                            <div class="card-body">
+                                <p>Preço válido apenas para o plano Individual Super Power.<a href=""> Sujeito a Termos e Condições.</a> *Oferta disponível apenas para novo registros.</p>
+                            </div>
+                        </div>
+
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <button class="btn btn-primary disabled" type="button">1 semana grátis com a assinatura</button>
+                                
+                                <h3 class="card-title">Individual mega power</h3>
+                                <p class="card-text">R$ 100/mês após o período da oferta</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">Com personal trainer</li>
+                                <li class="list-group-item">Com nutricionista</li>
+                            </ul>
+                            <div class="card-body mx-auto">
+                                <a href="cadastro.html"> 
+									<button class="btn btn-dark btn-md rounded-pill">Começar</button>
+								</a>
+                            </div>
+                            <div class="card-body">
+                                <p>Preço válido apenas para o plano Individual Mega Power<a href=""> Sujeito a Termos e Condições.</a> *Oferta disponível apenas para novo registros.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+        </section>
+	</section>
+
+	<div class="caixa3">
+		<div class="conteudo-titulo">
+			<span class="titulo">Estúdio fitness</span>
+		</div>
+	</div>
+
+	<div class="conteudo" id="conteudo3">
+		<h3>Sobre</h3>
+		<a>
+			 A Centaurus Gym é uma rede de academias familiar em expansão, tendo suas 25 sedes
+                         localizadas em diversas cidades do estado do Rio de 
+                         Janeiro.
+	</div>
+
+	<div class="caixa4">
+		<div class="conteudo-titulo">
+			<span class="titulo">prepare-se para ver sua melhor versão</span>
+		</div>
+	</div>
+
+	<footer class="d-flex bg-black">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-2">
+					<a href="#inicio"><img src="centaurus.jpg" width="32px"></a>
+				</div>
+				<div class="col-md-6">
+					<h6>Empresa</h6>
+					<ul>
+						<li><a href="#conteudo3">Sobre</a></li>
+						<li><a href="#premium">Serviços</a></li>
+						<li><a href="#locais">Filiais</a></li>
+					</ul>
+				</div>
+					
+				<div class="col-md-4">
+					<ul>
+						<li>
+							<a href="https://www.instagram.com/centaurusgym_/profilecard/?igsh=Z3d0ZGFzbjduZXk%3D" target="_blank"><img src="instagram.png"></a>
+						</li>
+						<li>
+							<a href="https://www.facebook.com/share/Ph6NT7ezJ96tMSZF/?mibextid=LQQJ4d" target="_blank"><img src="facebook.png"></a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
